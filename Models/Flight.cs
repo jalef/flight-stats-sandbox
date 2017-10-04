@@ -9,7 +9,7 @@ namespace FlightStatsSandbox.Models
         public Request Request { get; set; }
 		public string Id { get; set; }
         public string Number { get; set; }
-        public DateTime UpdatedTime { get; set; }
+        public DateTime UpdatedDateTime { get; set; }
         public FlightStatusEnum Status { get; set; }
         public Airline Airline { get; set; }
         public City OriginCity {get; set; }
@@ -23,8 +23,8 @@ namespace FlightStatsSandbox.Models
         public string RemarksText { get; set; }
         public string RemarksOnTime { get; set; }
         public RemarksEnum Remarks { get; set; }
-        public DateTime ScheduledTime { get; set; }
-        public DateTime CurrentTime { get; set; }
+        public DateTime ScheduledDateTime { get; set; }
+        public DateTime CurrentDateTime { get; set; }
 
         public Flight()
         {

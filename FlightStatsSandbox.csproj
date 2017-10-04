@@ -59,6 +59,10 @@
     <Reference Include="System.Web.Mvc">
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\" />
@@ -67,6 +71,7 @@
     <Folder Include="Types\" />
     <Folder Include="Services\" />
     <Folder Include="Services\Impl\" />
+    <Folder Include="Services\ServicesModels\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
@@ -85,6 +90,7 @@
     <Compile Include="Controllers\FlightController.cs" />
     <Compile Include="Services\IGetData.cs" />
     <Compile Include="Services\Impl\GetFIDSData.cs" />
+    <Compile Include="Services\ServicesModels\FidsDataResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />

@@ -7,14 +7,7 @@ namespace FlightStatsSandbox.Services
     
 	public interface IGetData
 	{
-		void GetFlights(Request request,
-                        IOnDataReadyCallback callback);
-		
-	}
-
-	public interface IOnDataReadyCallback
-	{
-		void OnDataReady(IList<Flight> flights);
+		List<Flight> GetFlights(Request request);
 		
 	}
 
