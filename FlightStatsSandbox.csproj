@@ -64,6 +64,9 @@
     <Folder Include="Content\" />
     <Folder Include="Models\" />
     <Folder Include="Scripts\" />
+    <Folder Include="Types\" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\Impl\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
@@ -71,6 +74,17 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Models\Flight.cs" />
+    <Compile Include="Types\FlightStatusEnum.cs" />
+    <Compile Include="Models\Request.cs" />
+    <Compile Include="Models\Airport.cs" />
+    <Compile Include="Models\Airline.cs" />
+    <Compile Include="Types\RequestTypeEnum.cs" />
+    <Compile Include="Models\City.cs" />
+    <Compile Include="Types\RemarksEnum.cs" />
+    <Compile Include="Controllers\FlightController.cs" />
+    <Compile Include="Services\IGetData.cs" />
+    <Compile Include="Services\Impl\GetFIDSData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />
