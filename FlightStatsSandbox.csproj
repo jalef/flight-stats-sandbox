@@ -72,6 +72,8 @@
     <Folder Include="Services\" />
     <Folder Include="Services\Impl\" />
     <Folder Include="Services\ServicesModels\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Helpers\Impl\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
@@ -91,6 +93,11 @@
     <Compile Include="Services\IGetData.cs" />
     <Compile Include="Services\Impl\GetFIDSData.cs" />
     <Compile Include="Services\ServicesModels\FidsDataResponse.cs" />
+    <Compile Include="Helpers\IApiUrlBuilder.cs" />
+    <Compile Include="Helpers\Impl\FidsApiUrlBuilder.cs" />
+    <Compile Include="Types\TimeFormatEnum.cs" />
+    <Compile Include="Helpers\IAppSettings.cs" />
+    <Compile Include="Helpers\Impl\FidsAppSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />

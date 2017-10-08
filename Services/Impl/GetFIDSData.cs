@@ -6,6 +6,11 @@ using System.Collections.Generic;
 using FlightStatsSandbox.Models;
 using Newtonsoft.Json;
 using FlightStatsSandbox.Services.ServicesModels;
+using System.Collections.Specialized;
+using System.Linq;
+using System.Web;
+using FlightStatsSandbox.Helpers;
+using FlightStatsSandbox.Helpers.Impl;
 
 namespace FlightStatsSandbox.Services.Impl
 {
@@ -15,44 +20,14 @@ namespace FlightStatsSandbox.Services.Impl
         {
         }
 
-        public List<Flight> GetFlights(Request req)
+        public List<Flight> GetFlights(Request request)
         {
-            
-            string url = "https://api.flightstats.com/flex/fids/rest/v1/json/ATH/" +
-                "departures?appId=1130f1f2&appKey=7f8f6c69145c0ace13a864b068c92eb9&" +
-                "requestedFields=airlineCode%2CflightNumber%2Ccity%2CcurrentTime" +
-                "%2CcurrentDate%2Cflight%2Cterminal%2Cdelayed%2Cgate%2CscheduledTime" +
-                "%2CscheduledDate%2ClastUpdatedTime%2ClastUpdatedDate%2CstatusCode" +
-                "%2CairlineName%2CairlineCode%2CairlineLogoUrlPng%2CdestinationAirportName" +
-                "%2CdestinationAirportCode%2CdestinationCity%2CdestinationStateCode" +
-                "%2CdestinationCountryCode%2CremarksWithTime%2CremarksCode" +
-                "%2CairportCode%2CairportName%2Ccity%2CoriginCity%2CoriginCountryCode%2CoriginStateCode" +
-                "%2Cremarks&" +
-                "lateMinutes=15&useRunwayTimes=false&excludeCargoOnlyFlights=false";
-            
+            IApiUrlBuilder apiUrlBuilder= new FidsApiUrlBuilder();
+
+            string url = apiUrlBuilder.BuildUrl(request);
+
             return ApiResponseToFlights(DeserializeApiResponse(GetFidsApiResponse(url)));
-           
         }
-
-		public FidsDataResponse GetFidsDataObject(Request req)
-		{
-
-			string url = "https://api.flightstats.com/flex/fids/rest/v1/json/ATH/" +
-				"departures?appId=1130f1f2&appKey=7f8f6c69145c0ace13a864b068c92eb9&" +
-				"requestedFields=airlineCode%2CflightNumber%2Ccity%2CcurrentTime" +
-				"%2CcurrentDate%2Cflight%2Cterminal%2Cdelayed%2Cgate%2CscheduledTime" +
-				"%2CscheduledDate%2ClastUpdatedTime%2ClastUpdatedDate%2CstatusCode" +
-				"%2CairlineName%2CairlineCode%2CairlineLogoUrlPng%2CdestinationAirportName" +
-				"%2CdestinationAirportCode%2CdestinationCity%2CdestinationStateCode" +
-				"%2CdestinationCountryCode%2CremarksWithTime%2CremarksCode" +
-				"%2CairportCode%2CairportName%2Ccity%2CoriginCity%2CoriginCountryCode%2CoriginStateCode" +
-				"%2Cremarks&" +
-				"lateMinutes=15&useRunwayTimes=false&excludeCargoOnlyFlights=false";
-
-            return DeserializeApiResponse(GetFidsApiResponse(url));
-
-		}
-
 
 		private string GetFidsApiResponse(string url)
 		{

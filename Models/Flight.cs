@@ -13,7 +13,7 @@ namespace FlightStatsSandbox.Models
         public FlightStatusEnum Status { get; set; }
         public Airline Airline { get; set; }
         public City OriginCity {get; set; }
-        public City Destination { get; set; }
+        public City DestinationCity { get; set; }
         public Airport DestinationAirport { get; set; }
         public Airport OriginAirport { get; set; }
         public string Gate { get; set; }

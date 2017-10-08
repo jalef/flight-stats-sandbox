@@ -17,7 +17,7 @@ namespace FlightStatsSandbox.Controllers
             var mvcName = typeof(Controller).Assembly.GetName();
             var isMono = Type.GetType("Mono.Runtime") != null;
 
-            GetFIDSData getFIDSData = new GetFIDSData();
+            IGetData getFIDSData = new GetFIDSData();
 
             var flights = getFIDSData.GetFlights(new Request());
 
