@@ -6,25 +6,22 @@ using System.Collections.Generic;
 using FlightStatsSandbox.Models;
 using Newtonsoft.Json;
 using FlightStatsSandbox.Services.ServicesModels;
-using System.Collections.Specialized;
-using System.Linq;
-using System.Web;
 using FlightStatsSandbox.Helpers;
-using FlightStatsSandbox.Helpers.Impl;
 
 namespace FlightStatsSandbox.Services.Impl
 {
-    public class GetFIDSData : IGetData
+    public class GetFidsData : IGetData
     {
-        public GetFIDSData()
+        private readonly IApiUrlBuilder _apiUrlBuilder;
+
+        public GetFidsData(IApiUrlBuilder apiUrlBuilder)
         {
+            _apiUrlBuilder = apiUrlBuilder;
         }
 
         public List<Flight> GetFlights(Request request)
         {
-            IApiUrlBuilder apiUrlBuilder= new FidsApiUrlBuilder();
-
-            string url = apiUrlBuilder.BuildUrl(request);
+            string url = _apiUrlBuilder.BuildUrl(request);
 
             return ApiResponseToFlights(DeserializeApiResponse(GetFidsApiResponse(url)));
         }

@@ -1,5 +1,4 @@
-﻿using System;
-using FlightStatsSandbox.Types;
+﻿using FlightStatsSandbox.Types;
 
 namespace FlightStatsSandbox.Helpers.Impl
 {

@@ -1,6 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using FlightStatsSandbox.Regimes;
 
 namespace FlightStatsSandbox
 {
@@ -10,6 +11,8 @@ namespace FlightStatsSandbox
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            InversionOfControlContainer.SetUp();
         }
     }
 }

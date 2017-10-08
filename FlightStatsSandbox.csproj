@@ -63,6 +63,14 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.4.2.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\packages\Castle.Windsor.4.1.0\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Remoting" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\" />
@@ -74,6 +82,8 @@
     <Folder Include="Services\ServicesModels\" />
     <Folder Include="Helpers\" />
     <Folder Include="Helpers\Impl\" />
+    <Folder Include="Regimes\" />
+    <Folder Include="Factories\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
@@ -98,6 +108,11 @@
     <Compile Include="Types\TimeFormatEnum.cs" />
     <Compile Include="Helpers\IAppSettings.cs" />
     <Compile Include="Helpers\Impl\FidsAppSettings.cs" />
+    <Compile Include="Regimes\DevelopmentInstaller.cs" />
+    <Compile Include="Regimes\TestingInstaller.cs" />
+    <Compile Include="Regimes\ProductionInstaller.cs" />
+    <Compile Include="Factories\ControllerFactory.cs" />
+    <Compile Include="Regimes\InversionOfControlContainer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />

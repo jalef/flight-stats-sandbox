@@ -8,17 +8,22 @@ namespace FlightStatsSandbox.Helpers.Impl
 {
     public class FidsApiUrlBuilder : IApiUrlBuilder
     {
+        private readonly IAppSettings _appSettings;
+
+        public FidsApiUrlBuilder(IAppSettings appSettings)
+        {
+            _appSettings = appSettings;   
+        }
+
         public string BuildUrl(Request request)
         {
-            IAppSettings appSettings = new FidsAppSettings();
-
             string queryString = QueryString(new NameValueCollection {
-                    { "appId", appSettings.AppID },
-                    { "appKey", appSettings.AppKey},
-                    { "lateMinutes", appSettings.LateMinutes.ToString() },
-                    { "useRunwayTimes", appSettings.UseRunwayTimes.ToString() },
-                    { "excludeCargoOnlyFlights", appSettings.ExcludeCargoOnlyFlights.ToString() },
-                    { "requestedFields", String.Join(",", appSettings.RequestedFields)}
+                    { "appId", _appSettings.AppID },
+                    { "appKey", _appSettings.AppKey},
+                    { "lateMinutes", _appSettings.LateMinutes.ToString() },
+                    { "useRunwayTimes", _appSettings.UseRunwayTimes.ToString() },
+                    { "excludeCargoOnlyFlights", _appSettings.ExcludeCargoOnlyFlights.ToString() },
+                    { "requestedFields", String.Join(",", _appSettings.RequestedFields)}
             });
 
             UriBuilder uriBuilder = new UriBuilder()
